@@ -1,6 +1,6 @@
-import './style.css'
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="container">
     <header class="section">
       <h1 class="calm-header">Your Name</h1>
@@ -45,4 +45,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <p>&copy; ${new Date().getFullYear()} Tristan. All rights reserved.</p>
     </footer>
   </div>
-`
+`;
