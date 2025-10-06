@@ -1,18 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
+
 :root {
-    /* Color Palette */
-    --background-color: #f4f7f5;
-    --text-color: #333;
-    --primary-color: #88a0a8; /* Muted blue-gray */
-    --secondary-color: #dce2e5;
-    --accent-color: #a3b8a7; /* Muted green */
-    --card-background: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.05);
+    --background-color: #292831;
+    --metal: #333f58;
+    --blue-gray: #4a7a96;
+    --red-orange: #ee8695;
+    --text-color: #fbbbad;
+
+    --github: url(/images/GitHub-dark.svg);
+    /* --twitter: url(../images/twitter-logo-white.svg); */
+    --itch: url(/images/itchio-textless-white.svg);
 
     /* Typography */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: "Courier Prime", "JetBrains Mono", monospace;
     line-height: 1.7;
-    font-weight: 400;
     color: var(--text-color);
     background-color: var(--background-color);
 
@@ -22,91 +23,114 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+html {
+    min-height: 100%;
     margin: 0;
-    display: flex;
-    place-items: center;
-    min-height: 100vh;
+    background-color: var(--background-color);
+    background-image: radial-gradient(
+            circle at 4% 4%,
+            rgba(238, 134, 149, 0.6) 0%,
+            rgba(238, 134, 149, 0.18) 8%,
+            rgba(238, 134, 149, 0.06) 15%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(238, 134, 149, 0.03) 0%,
+            rgba(74, 122, 150, 0.01) 25%,
+            transparent 60%
+        );
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 220% 220%, 100% 100%;
+    color: var(--text-color);
 }
 
-#app {
-    width: 100%;
-    padding: 2rem;
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.center-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 50px;
     text-align: center;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
+.content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.section {
-    padding: 3rem 1rem;
-    border-bottom: 1px solid var(--secondary-color);
+.social-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
 }
 
-.section:last-of-type {
-    border-bottom: none;
+.pfp {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
 }
 
-.calm-header {
-    font-size: 2.5em;
-    font-weight: 300;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
+.logo {
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.15s;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    color: var(--primary-color);
-    margin-top: 0;
+.logo:hover {
+    transform: translateY(-3px);
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+.logo:active {
+    transform: translateY(0px);
 }
 
-.card {
-    background: var(--card-background);
-    border-radius: 12px;
-    padding: 2em;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
+.gh-logo {
+    background-image: var(--github);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--shadow-color);
+.twitter-logo {
+    background-image: var(--twitter);
 }
 
-.card h3 {
-    margin-top: 0;
-    color: var(--accent-color);
+.itch-logo {
+    background-image: var(--itch);
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.8em 1.5em;
-    border-radius: 8px;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.25s;
-}
-
-.btn:hover {
-    background-color: var(--accent-color);
+h2 {
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 0;
 }
 
 .footer {
+    text-align: center;
+    width: 100vw;
+    height: fit-content;
     padding: 2rem 1rem;
-    margin-top: 2rem;
+    margin-top: auto;
     font-size: 0.9em;
-    color: var(--primary-color);
+    color: var(--text-color);
 }
