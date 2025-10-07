@@ -1,21 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
 
 :root {
-    --background-color: #292831;
-    --metal: #333f58;
-    --blue-gray: #4a7a96;
-    --red-orange: #ee8695;
-    --text-color: #fbbbad;
+    --color-sun: #f0f6f0;
+    --color-text: #f0f6f0;
+    --color-accent1: #e7f3a7;
+    --color-bg: #222323;
 
     --github: url(/images/GitHub-dark.svg);
-    /* --twitter: url(../images/twitter-logo-white.svg); */
     --itch: url(/images/itchio-textless-white.svg);
 
-    /* Typography */
-    font-family: "Courier Prime", "JetBrains Mono", monospace;
+    font-family: "IBM Plex Mono", "JetBrains Mono", Melno, Consolas, monospace;
     line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--color-text);
+    background-color: var(--color-bg);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -23,36 +20,89 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+:root[data-theme="dark"] {
+    --color-sun: #f0f6f0;
+    --color-text: #f0f6f0;
+    --color-accent1: #e7f3a7;
+    --color-bg: #222323;
+
+    --github: url(/images/GitHub-dark.svg);
+    --itch: url(/images/itchio-textless-white.svg);
+}
+
+:root[data-theme="light"] {
+    --color-sun: #222323;
+    --color-text: #222323;
+    --color-accent1: #e7f3a7;
+    --color-bg: #f0f6f0;
+
+    --github: url(/images/GitHub-light.svg);
+    --itch: url(/images/itchio-textless-black.svg);
+}
+
+* {
+    transition: color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+        background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 html {
     min-height: 100%;
     margin: 0;
-    background-color: var(--background-color);
-    background-image: radial-gradient(
-            circle at 4% 4%,
-            rgba(238, 134, 149, 0.6) 0%,
-            rgba(238, 134, 149, 0.18) 8%,
-            rgba(238, 134, 149, 0.06) 15%,
-            transparent 45%
+    background-color: var(--color-bg);
+    background-image: 
+        /* Sun effect on bottom left */ radial-gradient(
+            circle at 15% 95%,
+            color-mix(in srgb, var(--color-sun) 20%, transparent) 0%,
+            color-mix(in srgb, var(--color-sun) 8%, transparent) 15%,
+            transparent 50%
         ),
-        linear-gradient(
-            135deg,
-            rgba(238, 134, 149, 0.03) 0%,
-            rgba(74, 122, 150, 0.01) 25%,
-            transparent 60%
-        );
-
+        /* Sun effect on bottom right */
+            radial-gradient(
+                circle at 75% 90%,
+                color-mix(in srgb, var(--color-sun) 15%, transparent) 0%,
+                color-mix(in srgb, var(--color-sun) 5%, transparent) 20%,
+                transparent 30%
+            );
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 220% 220%, 100% 100%;
-    color: var(--text-color);
+    background-size: 100% 100%, 100% 100%;
+    color: var(--color-text);
 }
 
 body {
     min-height: 100vh;
     margin: 0;
-    padding: 2%;
+    padding: 8%;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    color: var(--color-text);
+    background: transparent;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--color-accent1);
+    color: var(--color-bg);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .center {
@@ -78,16 +128,32 @@ body {
     gap: 24px;
 }
 
+.content-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
 .social-row {
     display: flex;
     gap: 12px;
     justify-content: center;
 }
 
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
 .pfp {
     width: 200px;
     height: 200px;
     border-radius: 100%;
+    box-shadow: 3px -5px 5px 3px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
@@ -111,26 +177,40 @@ body {
     background-image: var(--github);
 }
 
-.twitter-logo {
-    background-image: var(--twitter);
-}
-
 .itch-logo {
     background-image: var(--itch);
 }
 
+h1 {
+    margin: 0;
+}
+
 h2 {
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration-color: var(--color-accent1);
     margin: 0;
+    color: var(--color-sun);
+}
+
+h3 {
+    font-weight: normal;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    color: var(--color-accent1);
+}
+
+.bottom-gap {
+    margin-bottom: 8px;
 }
 
 .footer {
     text-align: center;
-    width: 100vw;
-    height: fit-content;
+    width: 100%;
     padding: 2rem 1rem;
     margin-top: auto;
     font-size: 0.9em;
-    color: var(--text-color);
+    color: var(--color-text);
 }
