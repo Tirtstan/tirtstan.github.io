@@ -1,136 +1,72 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import "tailwindcss";
 
 :root {
-    --background-color: #292831;
-    --metal: #333f58;
-    --blue-gray: #4a7a96;
-    --red-orange: #ee8695;
-    --text-color: #fbbbad;
+  --color-sun: #f0f6f0;
+  --color-text: #f0f6f0;
+  --color-accent1: #e7f3a7;
+  --color-bg: #222323;
 
-    --github: url(/images/GitHub-dark.svg);
-    /* --twitter: url(../images/twitter-logo-white.svg); */
-    --itch: url(/images/itchio-textless-white.svg);
-
-    /* Typography */
-    font-family: "Courier Prime", "JetBrains Mono", monospace;
-    line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--background-color);
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  --github: url(/images/GitHub-dark.svg);
+  --itch: url(/images/itchio-textless-white.svg);
 }
 
-html {
-    min-height: 100%;
-    margin: 0;
-    background-color: var(--background-color);
-    background-image: radial-gradient(
-            circle at 4% 4%,
-            rgba(238, 134, 149, 0.6) 0%,
-            rgba(238, 134, 149, 0.18) 8%,
-            rgba(238, 134, 149, 0.06) 15%,
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            rgba(238, 134, 149, 0.03) 0%,
-            rgba(74, 122, 150, 0.01) 25%,
-            transparent 60%
-        );
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 220% 220%, 100% 100%;
-    color: var(--text-color);
+.text-button {
+  @apply inline-block cursor-pointer text-[var(--color-accent1)] transition-all duration-200;
+  text-shadow: 0 0 8px rgba(231, 243, 167, 0.3);
 }
 
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
+.text-button:hover {
+  text-shadow:
+    0 0 16px rgba(231, 243, 167, 0.6),
+    0 0 24px rgba(231, 243, 167, 0.4);
+  text-decoration: underline;
 }
 
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+.game-card,
+.project-card {
+  @apply flex flex-col rounded-lg border border-[var(--color-accent1)]/20 bg-[#2a2b2b] p-4 transition-all duration-200;
+  box-shadow: 0 0 8px rgba(231, 243, 167, 0.1);
 }
 
-.center-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    gap: 50px;
-    text-align: center;
+.game-card:hover,
+.project-card:hover {
+  box-shadow: 0 0 16px rgba(231, 243, 167, 0.2);
+  border-color: rgba(231, 243, 167, 0.4);
 }
 
-.content-side {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.contribution-tag {
+  @apply rounded bg-[var(--color-accent1)]/10 px-2 py-1 text-xs font-bold text-[var(--color-accent1)]/80;
 }
 
-.social-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
+.game-tag {
+  @apply rounded border border-[var(--color-accent1)]/30 bg-transparent px-2 py-1 text-xs font-medium text-[var(--color-accent1)]/60;
 }
 
-.pfp {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
+.social-link {
+  @apply h-8 w-8 opacity-70 transition-all duration-200;
+  filter: drop-shadow(0 0 4px rgba(231, 243, 167, 0.3));
 }
 
-.logo {
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    transition: transform 0.15s;
+.social-link:hover {
+  filter: drop-shadow(0 0 8px rgba(231, 243, 167, 0.6));
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-.logo:hover {
-    transform: translateY(-3px);
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.logo:active {
-    transform: translateY(0px);
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
 }
 
-.gh-logo {
-    background-image: var(--github);
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent1);
+  border-radius: 3px;
 }
 
-.twitter-logo {
-    background-image: var(--twitter);
-}
-
-.itch-logo {
-    background-image: var(--itch);
-}
-
-h2 {
-    font-weight: bold;
-    text-decoration: underline;
-    margin: 0;
-}
-
-.footer {
-    text-align: center;
-    width: 100vw;
-    height: fit-content;
-    padding: 2rem 1rem;
-    margin-top: auto;
-    font-size: 0.9em;
-    color: var(--text-color);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(231, 243, 167, 0.8);
 }
