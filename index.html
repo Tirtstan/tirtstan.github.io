@@ -4,105 +4,64 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/images/pfp.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tirt - Portfolio</title>
+    <title>Tristan - Portfolio</title>
     <script type="module" src="/src/main.ts"></script>
   </head>
-  <body class="center">
-    <div class="center center-box">
-      <section class="content-side">
-        <div class="info-column">
-          <h1 class="text-3xl">Tristan Gold</h1>
-          <h2>Developer - Unity, C#</h2>
-          <p class="bottom-gap">
-            Programmer, UI & UX developer experienced in Unity, amateur in Godot
-            & Unreal Engine.
-          </p>
-          <img
-            class="pfp"
-            src="images/pfp.jpg"
-            alt="Website creator's profile picture"
-          />
+  <body
+    class="min-h-screen overflow-y-auto bg-[var(--color-bg)] font-mono text-[var(--color-text)]"
+  >
+    <div class="container mx-auto flex h-screen flex-col px-6 py-8">
+      <!-- Header -->
+      <header class="mb-8 text-center">
+        <img
+          src="/images/pfp.jpg"
+          alt="Profile"
+          class="mx-auto mb-4 h-24 w-24 rounded-full border-2 border-[var(--color-accent1)]"
+        />
+        <h1 class="mb-2 text-4xl font-bold">Tristan Gold</h1>
+        <h2 class="mb-2 text-sm text-[var(--color-accent1)]">(Tirt)</h2>
+        <p class="mb-2 text-lg text-[var(--color-accent1)]">
+          Game Developer & UI/UX
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="https://github.com/tirtstan" target="_blank">
+            <img
+              src="/images/GitHub-dark.svg"
+              alt="GitHub"
+              class="social-link"
+            />
+          </a>
+          <a href="https://tirttirt.itch.io" target="_blank">
+            <img
+              src="/images/itchio-textless-white.svg"
+              alt="itch.io"
+              class="social-link"
+            />
+          </a>
         </div>
-        <div class="social-row">
-          <a
-            href="https://github.com/Tirtstan"
-            target="_blank"
-            aria-label="Links to the creator's github profile"
-          >
-            <div class="logo gh-logo"></div
-          ></a>
-          <a
-            href="https://tirttirt.itch.io/"
-            target="_blank"
-            aria-label="Links to the creator's github profile"
-          >
-            <div class="logo itch-logo"></div
-          ></a>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
+          <!-- Games Section -->
+          <section class="flex flex-col">
+            <h2 class="mb-4 text-center text-3xl font-bold">GAMES</h2>
+            <div id="games-container" class="flex flex-col gap-4">
+              <!-- Games will be added dynamically -->
+            </div>
+          </section>
+
+          <!-- Projects Section -->
+          <section class="flex flex-col">
+            <h2 class="mb-4 text-center text-3xl font-bold">PROJECTS</h2>
+            <div id="projects-container" class="flex flex-col gap-4">
+              <!-- Projects will be added dynamically -->
+            </div>
+          </section>
         </div>
-      </section>
-      <section class="content-side">
-        <h2>GAMES</h2>
-        <div class="content-display">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3909012?linkback=true&amp;bg_color=362e40&amp;fg_color=F2F0E5&amp;link_color=A8A2FF&amp;border_color=514c58"
-            width="552"
-            height="167"
-            ><a href="https://tirttirt.itch.io/pro-cessed"
-              >pro_cessed by Tirt, sauziee</a
-            ></iframe
-          >
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3101444?linkback=true&amp;bg_color=454851&amp;fg_color=e5efee&amp;link_color=42B5FA&amp;border_color=515358"
-            width="552"
-            height="167"
-            ><a href="https://tirttirt.itch.io/deliveralot"
-              >deliveralot by Tirt, JackFellow, sauziee, d00blesn00bles</a
-            ></iframe
-          >
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2787537?linkback=true&amp;bg_color=302f2f&amp;fg_color=F8E3B0&amp;link_color=AB6447&amp;border_color=4f4f4f"
-            width="552"
-            height="167"
-            ><a href="https://tirttirt.itch.io/daring-damsel"
-              >Daring Damsel by Tirt, d00blesn00bles, sauziee</a
-            ></iframe
-          >
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3039219?linkback=true&amp;bg_color=3f343a&amp;fg_color=f0e8de&amp;link_color=5ead96&amp;border_color=60565b"
-            width="552"
-            height="167"
-            ><a href="https://tirttirt.itch.io/canvas-conundrum"
-              >Canvas Conundrum by Tirt, Moster0726, Mster, sauziee</a
-            ></iframe
-          >
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2788794?linkback=true&amp;bg_color=373737&amp;fg_color=ffd78f&amp;link_color=ff8280&amp;border_color=4e4e4e"
-            width="552"
-            height="167"
-            ><a href="https://tirttirt.itch.io/martian-marathon"
-              >Martian Marathon by Tirt</a
-            ></iframe
-          >
-        </div>
-      </section>
-      <section class="content-side">
-        <h2>PROJECTS</h2>
-        <iframe
-          frameborder="0"
-          src="https://itch.io/embed/3909012?linkback=true&amp;bg_color=362e40&amp;fg_color=F2F0E5&amp;link_color=A8A2FF&amp;border_color=514c58"
-          width="552"
-          height="167"
-          ><a href="https://tirttirt.itch.io/pro-cessed"
-            >pro_cessed by Tirt, sauziee</a
-          ></iframe
-        >
-      </section>
+      </main>
+      <div id="bottom"></div>
     </div>
   </body>
-  <div id="bottom"></div>
 </html>

@@ -2,216 +2,71 @@
 @import "tailwindcss";
 
 :root {
-    --color-sun: #f0f6f0;
-    --color-text: #f0f6f0;
-    --color-accent1: #e7f3a7;
-    --color-bg: #222323;
+  --color-sun: #f0f6f0;
+  --color-text: #f0f6f0;
+  --color-accent1: #e7f3a7;
+  --color-bg: #222323;
 
-    --github: url(/images/GitHub-dark.svg);
-    --itch: url(/images/itchio-textless-white.svg);
-
-    font-family: "IBM Plex Mono", "JetBrains Mono", Melno, Consolas, monospace;
-    line-height: 1.7;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  --github: url(/images/GitHub-dark.svg);
+  --itch: url(/images/itchio-textless-white.svg);
 }
 
-:root[data-theme="dark"] {
-    --color-sun: #f0f6f0;
-    --color-text: #f0f6f0;
-    --color-accent1: #e7f3a7;
-    --color-bg: #222323;
-
-    --github: url(/images/GitHub-dark.svg);
-    --itch: url(/images/itchio-textless-white.svg);
+.text-button {
+  @apply inline-block cursor-pointer text-[var(--color-accent1)] transition-all duration-200;
+  text-shadow: 0 0 8px rgba(231, 243, 167, 0.3);
 }
 
-:root[data-theme="light"] {
-    --color-sun: #222323;
-    --color-text: #222323;
-    --color-accent1: #e7f3a7;
-    --color-bg: #f0f6f0;
-
-    --github: url(/images/GitHub-light.svg);
-    --itch: url(/images/itchio-textless-black.svg);
+.text-button:hover {
+  text-shadow:
+    0 0 16px rgba(231, 243, 167, 0.6),
+    0 0 24px rgba(231, 243, 167, 0.4);
+  text-decoration: underline;
 }
 
-* {
-    transition: color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
-        background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+.game-card,
+.project-card {
+  @apply flex flex-col rounded-lg border border-[var(--color-accent1)]/20 bg-[#2a2b2b] p-4 transition-all duration-200;
+  box-shadow: 0 0 8px rgba(231, 243, 167, 0.1);
 }
 
-html {
-    min-height: 100%;
-    margin: 0;
-    background-color: var(--color-bg);
-    background-image: 
-        /* Sun effect on bottom left */ radial-gradient(
-            circle at 15% 95%,
-            color-mix(in srgb, var(--color-sun) 20%, transparent) 0%,
-            color-mix(in srgb, var(--color-sun) 8%, transparent) 15%,
-            transparent 50%
-        ),
-        /* Sun effect on bottom right */
-            radial-gradient(
-                circle at 75% 90%,
-                color-mix(in srgb, var(--color-sun) 15%, transparent) 0%,
-                color-mix(in srgb, var(--color-sun) 5%, transparent) 20%,
-                transparent 30%
-            );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%, 100% 100%;
-    color: var(--color-text);
+.game-card:hover,
+.project-card:hover {
+  box-shadow: 0 0 16px rgba(231, 243, 167, 0.2);
+  border-color: rgba(231, 243, 167, 0.4);
 }
 
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 8%;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    color: var(--color-text);
-    background: transparent;
+.contribution-tag {
+  @apply rounded bg-[var(--color-accent1)]/10 px-2 py-1 text-xs font-bold text-[var(--color-accent1)]/80;
 }
 
-/* Theme toggle button */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--color-accent1);
-    color: var(--color-bg);
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease;
-    z-index: 1000;
+.game-tag {
+  @apply rounded border border-[var(--color-accent1)]/30 bg-transparent px-2 py-1 text-xs font-medium text-[var(--color-accent1)]/60;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
+.social-link {
+  @apply h-8 w-8 opacity-70 transition-all duration-200;
+  filter: drop-shadow(0 0 4px rgba(231, 243, 167, 0.3));
 }
 
-.center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+.social-link:hover {
+  filter: drop-shadow(0 0 8px rgba(231, 243, 167, 0.6));
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-.center-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    gap: 50px;
-    text-align: center;
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.content-side {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
 }
 
-.content-display {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent1);
+  border-radius: 3px;
 }
 
-.social-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-}
-
-.info-column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-}
-
-.pfp {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    box-shadow: 3px -5px 5px 3px rgba(0, 0, 0, 0.25);
-}
-
-.logo {
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    transition: transform 0.15s;
-}
-
-.logo:hover {
-    transform: translateY(-3px);
-}
-
-.logo:active {
-    transform: translateY(0px);
-}
-
-.gh-logo {
-    background-image: var(--github);
-}
-
-.itch-logo {
-    background-image: var(--itch);
-}
-
-h1 {
-    margin: 0;
-}
-
-h2 {
-    font-weight: bold;
-    text-decoration-color: var(--color-accent1);
-    margin: 0;
-    color: var(--color-sun);
-}
-
-h3 {
-    font-weight: normal;
-    margin: 0;
-}
-
-p {
-    margin: 0;
-    color: var(--color-accent1);
-}
-
-.bottom-gap {
-    margin-bottom: 8px;
-}
-
-.footer {
-    text-align: center;
-    width: 100%;
-    padding: 2rem 1rem;
-    margin-top: auto;
-    font-size: 0.9em;
-    color: var(--color-text);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(231, 243, 167, 0.8);
 }
