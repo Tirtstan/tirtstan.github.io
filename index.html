@@ -8,22 +8,19 @@
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body
-    class="min-h-screen overflow-y-auto bg-[var(--color-bg)] font-mono text-[var(--color-text)]"
+    class="min-h-screen bg-[var(--color-bg)] font-mono text-[var(--color-text)]"
   >
-    <div class="container mx-auto flex h-screen flex-col px-6 py-8">
-      <!-- Header -->
-      <header class="mb-8 text-center">
-        <img
-          src="/images/pfp.jpg"
-          alt="Profile"
-          class="mx-auto mb-4 h-24 w-24 rounded-full border-2 border-[var(--color-accent1)]"
-        />
-        <h1 class="mb-2 text-4xl font-bold">Tristan Gold</h1>
-        <h2 class="mb-2 text-sm text-[var(--color-accent1)]">(Tirt)</h2>
-        <p class="mb-2 text-lg text-[var(--color-accent1)]">
-          Game Developer & UI/UX
+    <div class="container-layout">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <img src="/images/pfp.jpg" alt="Profile" class="profile-image" />
+        <h1 class="profile-name">Tristan Gold</h1>
+        <h2 class="profile-nickname">(Tirt)</h2>
+        <p class="profile-title">
+          Game Developer<br />
+          User Experience
         </p>
-        <div class="flex justify-center gap-4">
+        <div class="social-links">
           <a href="https://github.com/tirtstan" target="_blank">
             <img
               src="/images/GitHub-dark.svg"
@@ -39,29 +36,26 @@
             />
           </a>
         </div>
-      </header>
+      </div>
 
-      <!-- Main Content -->
-      <main class="flex-1 p-6">
-        <div class="grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
-          <!-- Games Section -->
-          <section class="flex flex-col">
-            <h2 class="mb-4 text-center text-3xl font-bold">GAMES</h2>
-            <div id="games-container" class="flex flex-col gap-4">
-              <!-- Games will be added dynamically -->
-            </div>
-          </section>
-
-          <!-- Projects Section -->
-          <section class="flex flex-col">
-            <h2 class="mb-4 text-center text-3xl font-bold">PROJECTS</h2>
-            <div id="projects-container" class="flex flex-col gap-4">
-              <!-- Projects will be added dynamically -->
-            </div>
-          </section>
+      <!-- Cards Grid Section -->
+      <div class="cards-section">
+        <div class="section-header">
+          <h2 class="section-title">Games</h2>
         </div>
-      </main>
-      <div id="bottom"></div>
+        <div id="games-grid" class="cards-grid">
+          <!-- Game cards will be added here -->
+        </div>
+
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div id="projects-grid" class="cards-grid">
+          <!-- Project cards will be added here -->
+        </div>
+      </div>
     </div>
+
+    <div id="bottom"></div>
   </body>
 </html>
