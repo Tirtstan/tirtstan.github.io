@@ -8,7 +8,6 @@ interface Game {
   tags: string[];
   contributions: string[];
   year: number;
-  coverImage: string;
 }
 
 interface ProjectConfig {
@@ -29,22 +28,22 @@ function createGameCard(game: Game) {
     .join("");
 
   return `
-    <div class="card relative overflow-hidden rounded-2xl p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
+    <div class="card relative overflow-hidden rounded-[8px] p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
       <div class="flex items-start justify-between mb-3">
         <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${game.title}</h3>
         <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>
       </div>
       <div class="flex flex-wrap gap-2 mb-3">${tagsHtml}</div>
-      <div class="relative rounded-lg overflow-hidden mb-3">
-        <img src="${game.coverImage}" alt="${game.title}" class="w-full h-auto object-cover" />
+      <div class="itch-embed-container">
+       
+        <iframe 
+          class="rounded-lg itch-embed"
+          frameborder="0"
+          src="https://itch.io/embed/${game.widgetId}?border_width=0&bg_color=2a2b2b&fg_color=f0f6f0&link_color=e7f3a7" 
+          width="510" 
+          height="167">
+        </iframe>
       </div>
-      <iframe 
-        class="rounded-lg opacity-90 w-full"
-        frameborder="0" 
-        src="https://itch.io/embed/${game.widgetId}?border_width=0&bg_color=1a1a1a&fg_color=f0f6f0&link_color=e7f3a7&linkback=true" 
-        width="100%" 
-        height="167">
-      </iframe>
     </div>
   `;
 }
@@ -63,7 +62,7 @@ function createProjectCard(project: any) {
   const year = new Date(project.created_at).getFullYear();
 
   return `
-    <div class="card relative overflow-hidden rounded-2xl p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
+    <div class="card relative overflow-hidden rounded-[8px] p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group min-h-[200px]">
       <div class="flex items-start justify-between mb-3">
         <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${project.name}</h3>
         <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${year}</span>
@@ -118,8 +117,22 @@ async function initializeCards() {
 
   if (!gamesContainer || !projectsContainer) return;
 
+  // Pre-render skeleton cards to prevent layout shift
+  gamesContainer.innerHTML = games
+    .map(() => '<div class="card-skeleton"></div>')
+    .join("");
+
+  projectsContainer.innerHTML = projects
+    .map(() => '<div class="card-skeleton"></div>')
+    .join("");
+
+  // Small delay to ensure skeletons render
+  await new Promise((resolve) => setTimeout(resolve, 50));
+
+  // Render actual game cards
   gamesContainer.innerHTML = games.map((game) => createGameCard(game)).join("");
 
+  // Fetch and render project cards
   const fetchedProjects = await fetchGitHubProjects();
   projectsContainer.innerHTML = fetchedProjects
     .map((project) => createProjectCard(project))

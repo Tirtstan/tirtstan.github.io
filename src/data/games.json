@@ -4,31 +4,27 @@
     "title": "pro_cessed",
     "tags": ["Unity", "Multiplayer", "Platformer"],
     "contributions": ["Programming", "UI/UX", "SFX"],
-    "year": 2025,
-    "coverImage": "https://img.itch.zone/aW1nLzE4MDYyNzI2LnBuZw==/original/example.png"
+    "year": 2025
   },
   {
     "widgetId": "3101444",
     "title": "deliveralot",
     "tags": ["Unity", "Arcade"],
     "contributions": ["Programming", "UI/UX"],
-    "year": 2024,
-    "coverImage": "https://img.itch.zone/aW1nLzE4MDYyNzI2LnBuZw==/original/example.png"
+    "year": 2024
   },
   {
     "widgetId": "2787537",
     "title": "Daring Damsel",
     "tags": ["Unity", "Puzzle"],
     "contributions": ["Programming", "UX"],
-    "year": 2023,
-    "coverImage": "https://img.itch.zone/aW1nLzE4MDYyNzI2LnBuZw==/original/example.png"
+    "year": 2024
   },
   {
     "widgetId": "3039219",
     "title": "Canvas Conundrum",
     "tags": ["Unity", "Puzzle"],
     "contributions": ["Programming", "UX"],
-    "year": 2024,
-    "coverImage": "https://img.itch.zone/aW1nLzE4MDYyNzI2LnBuZw==/original/example.png"
+    "year": 2024
   }
 ]
