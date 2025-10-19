@@ -55,16 +55,6 @@ body {
       rgba(231, 243, 167, 0.03) 0%,
       transparent 50%
     ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      transparent 2px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      transparent 2px
-    ),
     #0a0a0a;
 }
 
@@ -104,6 +94,7 @@ body {
     0 8px 32px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   animation: cardFlyIn 0.3s ease-out backwards;
+  height: fit-content;
 }
 
 .card::before {
@@ -153,6 +144,10 @@ body {
 }
 .card:nth-child(4) {
   animation-delay: 0.4s;
+}
+
+.itch-embed {
+  min-width: 510px;
 }
 
 ::-webkit-scrollbar {
