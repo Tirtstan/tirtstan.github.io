@@ -19,28 +19,33 @@ const games: Game[] = gamesData;
 const projects: ProjectConfig[] = projectsData;
 
 function createGameCard(game: Game) {
-  const tagsHtml = [...game.contributions, ...game.tags]
-    .slice(0, 4)
+  const contributionsHtml = game.contributions
     .map(
       (tag) =>
-        `<span class="text-xs px-2 py-1 bg-[rgba(231,243,167,0.1)] border border-[rgba(231,243,167,0.2)] rounded text-[rgba(231,243,167,0.8)]">${tag}</span>`,
+        `<span class="contribution-tag text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[rgba(231,243,167,0.9)]">${tag}</span>`,
+    )
+    .join("");
+
+  const tagsHtml = game.tags
+    .map(
+      (tag) =>
+        `<span class="game-tag text-xs px-2 py-1 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-[rgba(255,255,255,0.6)]">${tag}</span>`,
     )
     .join("");
 
   return `
-    <div class="card relative overflow-hidden rounded-[8px] p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
+    <div class="card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
       <div class="flex items-start justify-between mb-3">
         <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${game.title}</h3>
         <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>
       </div>
-      <div class="flex flex-wrap gap-2 mb-3">${tagsHtml}</div>
-      <div class="itch-embed-container">
-       
-        <iframe 
+      <div class="flex flex-wrap gap-2 mb-3">${contributionsHtml}${tagsHtml}</div>
+      <div>
+        <iframe
           class="rounded-lg itch-embed"
           frameborder="0"
           src="https://itch.io/embed/${game.widgetId}?border_width=0&bg_color=2a2b2b&fg_color=f0f6f0&link_color=e7f3a7" 
-          width="510" 
+          width="100%" 
           height="167">
         </iframe>
       </div>
@@ -62,7 +67,7 @@ function createProjectCard(project: any) {
   const year = new Date(project.created_at).getFullYear();
 
   return `
-    <div class="card relative overflow-hidden rounded-[8px] p-6 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group min-h-[200px]">
+    <div class="card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group min-h-[200px]">
       <div class="flex items-start justify-between mb-3">
         <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${project.name}</h3>
         <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${year}</span>
