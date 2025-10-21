@@ -8,6 +8,7 @@ interface Game {
   tags: string[];
   contributions: string[];
   year: number;
+  details?: string;
 }
 
 interface ProjectConfig {
@@ -33,13 +34,33 @@ function createGameCard(game: Game) {
     )
     .join("");
 
+  const detailsHtml = game.details
+    ? `<div class="game-details-content mt-2 mb-4 text-sm text-[rgba(240,246,240,0.7)] leading-relaxed">${game.details}</div>`
+    : "";
+
+  const detailsButtonHtml = game.details
+    ? `<button class="details-button p-1 rounded-full hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 z-10">
+        <svg class="w-5 h-5 text-[rgba(231,243,167,0.7)] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </button>`
+    : "";
+
+  const yearBadgeHtml = `<span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>`;
+
   return `
-    <div class="card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
-      <div class="flex items-start justify-between mb-3">
-        <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${game.title}</h3>
-        <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>
+    <div class="card game-card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
+      <div class="absolute top-3 right-3 flex items-center gap-2 z-10">
+        ${yearBadgeHtml}
+        ${detailsButtonHtml}
       </div>
-      <div class="flex flex-wrap gap-2 mb-3">${contributionsHtml}${tagsHtml}</div>
+      <div class="card-header cursor-pointer">
+        <div class="flex items-start justify-between mb-3">
+          <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1 pr-4">${game.title}</h3>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-3">${contributionsHtml}${tagsHtml}</div>
+      </div>
+      <div class="game-details overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+        ${detailsHtml}
+      </div>
       <div>
         <iframe
           class="rounded-lg itch-embed"
@@ -136,6 +157,45 @@ async function initializeCards() {
 
   // Render actual game cards
   gamesContainer.innerHTML = games.map((game) => createGameCard(game)).join("");
+
+  // Add click listeners to game cards
+  document.querySelectorAll(".game-card .card-header").forEach((header) => {
+    header.addEventListener("click", () => {
+      const card = header.closest(".game-card");
+      const details = card?.querySelector<HTMLDivElement>(".game-details");
+      if (details && details.innerHTML.trim() !== "") {
+        card?.classList.toggle("expanded");
+        const arrow = card?.querySelector(".details-button svg");
+        if (card?.classList.contains("expanded")) {
+          details.style.maxHeight = details.scrollHeight + "px";
+          arrow?.classList.add("rotate-180");
+        } else {
+          details.style.maxHeight = "0px";
+          arrow?.classList.remove("rotate-180");
+        }
+      }
+    });
+  });
+
+  // Add click listeners to details buttons
+  document.querySelectorAll(".game-card .details-button").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent header click event from firing
+      const card = button.closest(".game-card");
+      const details = card?.querySelector<HTMLDivElement>(".game-details");
+      if (details && details.innerHTML.trim() !== "") {
+        card?.classList.toggle("expanded");
+        const arrow = card?.querySelector(".details-button svg");
+        if (card?.classList.contains("expanded")) {
+          details.style.maxHeight = details.scrollHeight + "px";
+          arrow?.classList.add("rotate-180");
+        } else {
+          details.style.maxHeight = "0px";
+          arrow?.classList.remove("rotate-180");
+        }
+      }
+    });
+  });
 
   // Fetch and render project cards
   const fetchedProjects = await fetchGitHubProjects();
