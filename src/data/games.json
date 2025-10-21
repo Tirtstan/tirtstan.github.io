@@ -2,29 +2,38 @@
   {
     "widgetId": "3909012",
     "title": "pro_cessed",
-    "tags": ["Unity", "Multiplayer", "Platformer"],
+    "tags": ["Unity", "Platformer", "2 Player", "Networked Multiplayer"],
     "contributions": ["Programming", "UI/UX", "SFX", "Design"],
-    "year": 2025
+    "year": 2025,
+    "details": "A college project developed with a partner over a month. Topic was about \"looking into the future\". I contributed with programming, Unity implementation, UI/UX, SFX, and design. Networked multiplayer is hard!!"
   },
   {
     "widgetId": "3101444",
     "title": "deliveralot",
-    "tags": ["Unity", "Arcade"],
-    "contributions": ["Programming", "UI/UX", "Design"],
-    "year": 2024
+    "tags": ["Unity", "Arcade", "Racing"],
+    "contributions": [
+      "Programming",
+      "UI/UX",
+      "Design",
+      "Loeries Finalist 2025"
+    ],
+    "year": 2024,
+    "details": "Developed over a semester in a group of 4, deliveralot is a college project based on the idea of \"advergames\", where we chose the South African company \"takealot\". I was responsible for programming (including Unity implementation), UI/UX design, and overall game design (not level design). We made it to the Loeries finals in 2025!"
   },
   {
     "widgetId": "2787537",
     "title": "Daring Damsel",
     "tags": ["Unity", "Puzzle"],
     "contributions": ["Programming", "UX"],
-    "year": 2024
+    "year": 2024,
+    "details": "Daring Damsel was created in a group of 3 for a provided personality type as a topic. I was in charge of programming, Unity implementation and UX design."
   },
   {
     "widgetId": "3039219",
     "title": "Canvas Conundrum",
     "tags": ["Unity", "Puzzle"],
     "contributions": ["Programming", "UX"],
-    "year": 2024
+    "year": 2024,
+    "details": "Canvas Conundrum was created in a group of 5 for my college game jam. We were instructed to continue development with extra time (due dates). I was behind programming, Unity implementation and UX design."
   }
 ]

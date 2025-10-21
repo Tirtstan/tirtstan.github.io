@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/pfp.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/images/pfp.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tristan - Portfolio</title>
     <script type="module" src="/src/main.ts"></script>
@@ -11,14 +11,14 @@
     class="min-h-screen overflow-x-hidden bg-[var(--color-bg)] font-mono text-[var(--color-text)]"
   >
     <div
-      class="mx-auto flex max-w-[1600px] flex-col items-start gap-12 p-4 md:p-12 lg:flex-row lg:items-start lg:gap-24"
+      class="mx-auto flex max-w-[1600px] flex-col items-start gap-6 p-4 md:p-12 lg:flex-row lg:items-start lg:gap-12"
     >
       <!-- Profile Section -->
       <div
-        class="profile-section mx-auto flex w-full max-w-[400px] flex-shrink-0 flex-col items-center text-center lg:sticky lg:top-8 lg:mx-0 lg:w-auto lg:max-w-none"
+        class="profile-section mx-auto flex w-full max-w-[400px] flex-shrink-0 flex-col items-center text-center lg:sticky lg:top-8 lg:mx-0"
       >
         <img
-          src="/images/pfp.jpg"
+          src="/images/pfp.jpeg"
           alt="Profile"
           class="profile-image mb-6 h-[120px] w-[120px] rounded-full border-3 border-[var(--color-accent1)] md:h-[150px] md:w-[150px] lg:h-[180px] lg:w-[180px]"
         />
@@ -43,7 +43,7 @@
             >tristan.gold2004@outlook.com</a
           >
         </div>
-        <div class="flex justify-center gap-4">
+        <div class="mb-8 flex justify-center gap-4">
           <a href="https://github.com/tirtstan" target="_blank">
             <img
               src="/images/GitHub-dark.svg"
@@ -65,6 +65,29 @@
               class="social-link h-8 w-8 opacity-70 transition-all duration-300 hover:scale-110 hover:opacity-100"
             />
           </a>
+        </div>
+
+        <!-- About Section -->
+        <div class="w-full border-t border-[rgba(231,243,167,0.2)] pt-6">
+          <h3
+            class="mb-3 text-left text-lg font-bold text-[var(--color-accent1)]"
+          >
+            About
+          </h3>
+          <p
+            class="text-left text-sm leading-relaxed text-[rgba(240,246,240,0.7)]"
+          >
+            I'm <strong>Tristan</strong>! Game developer and player based in
+            Cape Town, South Africa. I love making games, enjoying architectural
+            and system design programming. I love working with user interfaces,
+            experiences and the polishing phase of game creation. <br /><br />
+            I have developed specific tooling to help me with development.
+            <strong>Sentinal</strong> has been a life saver for menu-based
+            gamepad support in my most recent Unity games,
+            <strong>Pathways</strong> has sorted the "where" when saving my game
+            data and <strong>Tweening-Components</strong> helps give my UI
+            elements ✨animation✨.
+          </p>
         </div>
       </div>
 
