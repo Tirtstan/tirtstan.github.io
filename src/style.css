@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
 @import "tailwindcss";
 
 :root {
   --color-text: #f0f6f0;
   --color-accent1: #e7f3a7;
   --color-bg: #0a0a0a;
+
+  --mono-font: "IBM Plex Mono", "Melno", "Consolas", monospace;
+  --sans-font: "IBM Plex Sans", sans-serif;
 }
 
 @keyframes fadeIn {
@@ -49,6 +51,8 @@
 }
 
 body {
+  font-family: var(--sans-font);
+  font-weight: 450;
   background:
     radial-gradient(
       ellipse at center,
@@ -56,6 +60,15 @@ body {
       transparent 50%
     ),
     #0a0a0a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--mono-font);
 }
 
 .profile-section {
