@@ -23,19 +23,19 @@ function createGameCard(game: Game) {
   const contributionsHtml = game.contributions
     .map(
       (tag) =>
-        `<span class="contribution-tag text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[rgba(231,243,167,0.9)]">${tag}</span>`,
+        `<span class="contribution-tag text-sm px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[rgba(231,243,167,0.9)]">${tag}</span>`,
     )
     .join("");
 
   const tagsHtml = game.tags
     .map(
       (tag) =>
-        `<span class="game-tag text-xs px-2 py-1 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-[rgba(255,255,255,0.6)]">${tag}</span>`,
+        `<span class="game-tag text-sm px-2 py-1 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-[rgba(255,255,255,0.6)]">${tag}</span>`,
     )
     .join("");
 
   const detailsHtml = game.details
-    ? `<div class="game-details-content mt-2 mb-4 text-sm text-[rgba(240,246,240,0.7)] leading-relaxed">${game.details}</div>`
+    ? `<div class="game-details-content mt-2 mb-4 text-base text-[rgba(240,246,240,0.7)] leading-relaxed">${game.details}</div>`
     : "";
 
   const detailsButtonHtml = game.details
@@ -44,7 +44,7 @@ function createGameCard(game: Game) {
       </button>`
     : "";
 
-  const yearBadgeHtml = `<span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>`;
+  const yearBadgeHtml = `<span class="year-badge text-sm px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${game.year}</span>`;
 
   return `
     <div class="card game-card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group">
@@ -54,7 +54,7 @@ function createGameCard(game: Game) {
       </div>
       <div class="card-header cursor-pointer">
         <div class="flex items-start justify-between mb-3">
-          <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1 pr-4">${game.title}</h3>
+          <h3 class="card-title text-xl font-bold text-[var(--color-accent1)] flex-1 pr-4">${game.title}</h3>
         </div>
         <div class="flex flex-wrap gap-2 mb-3">${contributionsHtml}${tagsHtml}</div>
       </div>
@@ -81,7 +81,7 @@ function createProjectCard(project: any) {
   const tagsHtml = tags
     .map(
       (tag) =>
-        `<span class="text-xs px-2 py-1 bg-[rgba(231,243,167,0.1)] border border-[rgba(231,243,167,0.2)] rounded text-[rgba(231,243,167,0.8)]">${tag}</span>`,
+        `<span class="text-sm px-2 py-1 bg-[rgba(231,243,167,0.1)] border border-[rgba(231,243,167,0.2)] rounded text-[rgba(231,243,167,0.8)]">${tag}</span>`,
     )
     .join("");
 
@@ -90,12 +90,12 @@ function createProjectCard(project: any) {
   return `
     <div class="card relative overflow-hidden rounded-[8px] p-4 transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] group min-h-[200px]">
       <div class="flex items-start justify-between mb-3">
-        <h3 class="card-title text-lg font-bold text-[var(--color-accent1)] flex-1">${project.name}</h3>
-        <span class="year-badge text-xs px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${year}</span>
+        <h3 class="card-title text-xl font-bold text-[var(--color-accent1)] flex-1">${project.name}</h3>
+        <span class="year-badge text-sm px-2 py-1 bg-[rgba(231,243,167,0.15)] border border-[rgba(231,243,167,0.3)] rounded text-[var(--color-accent1)]">${year}</span>
       </div>
       <div class="flex flex-wrap gap-2 mb-3">${tagsHtml}</div>
-      <p class="text-sm text-[rgba(240,246,240,0.7)] leading-relaxed mb-3">${project.description || "A project I built"}</p>
-      <a href="${project.html_url}" target="_blank" class="card-link inline-block text-sm text-[var(--color-accent1)] no-underline transition-all duration-200 hover:underline">View on GitHub →</a>
+      <p class="text-base text-[rgba(240,246,240,0.7)] leading-relaxed mb-3">${project.description || "A project I built"}</p>
+      <a href="${project.html_url}" target="_blank" class="card-link inline-block text-base text-[var(--color-accent1)] no-underline transition-all duration-200 hover:underline">View on GitHub →</a>
     </div>
   `;
 }
@@ -208,6 +208,6 @@ document.addEventListener("DOMContentLoaded", initializeCards);
 
 document.querySelector<HTMLDivElement>("#bottom")!.innerHTML = `
   <footer class="text-center py-4 mt-8 border-t border-[rgba(231,243,167,0.2)]">
-    <p class="text-sm opacity-70">&copy; ${new Date().getFullYear()} Tristan. All rights reserved.</p>
+    <p class="text-base opacity-70">&copy; ${new Date().getFullYear()} Tristan. All rights reserved.</p>
   </footer>
 `;
