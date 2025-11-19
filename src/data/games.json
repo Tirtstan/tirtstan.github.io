@@ -8,6 +8,14 @@
     "details": "A college project developed with a partner over a month. Topic was about \"looking into the future\". I contributed with programming, Unity implementation, UI/UX, SFX, and design. Networked multiplayer is hard!!"
   },
   {
+    "widgetId": "4041399",
+    "title": "Tower Defenders",
+    "tags": ["Unity", "Tower Defence", "Procedural Generation"],
+    "contributions": ["Programming", "UI/UX", "Design"],
+    "year": 2025,
+    "details": "Tower Defenders was solo created over 3 parts, exploring and testing our knowledge of procedural generation, UI/UX, balancing and Unity. Art assets are not mine."
+  },
+  {
     "widgetId": "3101444",
     "title": "deliveralot",
     "tags": ["Unity", "Arcade", "Racing"],
@@ -27,13 +35,5 @@
     "contributions": ["Programming", "UX"],
     "year": 2024,
     "details": "Daring Damsel was created in a group of 3 for a provided personality type as a topic. I was in charge of programming, Unity implementation and UX design."
-  },
-  {
-    "widgetId": "3039219",
-    "title": "Canvas Conundrum",
-    "tags": ["Unity", "Puzzle"],
-    "contributions": ["Programming", "UX"],
-    "year": 2024,
-    "details": "Canvas Conundrum was created in a group of 5 for my college game jam. We were instructed to continue development with extra time (due dates). I was behind programming, Unity implementation and UX design."
   }
 ]
